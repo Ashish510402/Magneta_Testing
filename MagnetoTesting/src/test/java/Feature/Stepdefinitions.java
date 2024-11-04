@@ -57,11 +57,13 @@ public class Stepdefinitions {
     public void click_sign_out() throws InterruptedException {
         Thread.sleep(3000);
         createaccount.clicksignout();
+        Thread.sleep(3000);
     }
 
     @When("Click on Sign In button")
-    public void click_on_sign_in_button() {
+    public void click_on_sign_in_button() throws InterruptedException {
         driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/a")).click();
+        Thread.sleep(3000);
         signin = new Signin(driver);
     }
 
