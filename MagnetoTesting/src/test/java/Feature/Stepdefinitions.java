@@ -43,7 +43,7 @@ public class Stepdefinitions {
         createaccount.enterEmail(email);
         createaccount.enterPassword(password);
         createaccount.confirmPassword(confirmpassword);
-
+        Thread.sleep(5000);
         createaccount.clickCreateAccount();
         Thread.sleep(3000);
 }
@@ -67,7 +67,7 @@ public class Stepdefinitions {
         signin = new Signin(driver);
     }
 
-    @When("Enter email {string} , password {string}")
+    @And("Enter email {string} , password {string}")
     public void enter_login_details(String Email, String Password) throws InterruptedException {
         signin.enterEmail(Email);
         Thread.sleep(3000);

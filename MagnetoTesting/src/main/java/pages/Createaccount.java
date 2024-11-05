@@ -44,12 +44,26 @@ public class Createaccount {
         confirmpass.sendKeys(confirmpassword);
     }
 
-    public void clickCreateAccount() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement createAccountButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit' and @class='action submit primary']")));
-        createAccountButton.click();
 
+
+//    public void clickCreateAccount() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//        WebElement createAccountButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit' and @class='action submit primary']")));
+//        createAccountButton.click();
+//
+//    }
+    public void clickCreateAccount() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        // Locate the "Create Account" button
+        WebElement createAccountButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit' and @class='action submit primary']")));
+        // Scroll to the "Create Account" button using JavaScript
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", createAccountButton);
+
+        // Wait briefly to ensure scroll has completed, then click the button
+        createAccountButton.click();
     }
+
 
     public void clickondropdown() throws InterruptedException {
         WebElement dropdown = driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/span/button"));
